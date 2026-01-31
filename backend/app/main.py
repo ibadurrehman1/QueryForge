@@ -70,8 +70,12 @@ async def health_check():
     }
 
 
-# API v1 routes will be added here
+# API v1 routes
+from app.api.v1 import users
+
+app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
+
+# Future routes:
 # app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
 # app.include_router(queries.router, prefix="/api/v1/queries", tags=["queries"])
-# app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
 # app.include_router(feedback.router, prefix="/api/v1/feedback", tags=["feedback"])

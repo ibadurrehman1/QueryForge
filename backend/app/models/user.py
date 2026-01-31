@@ -11,14 +11,18 @@ class UserRole(str, enum.Enum):
 class User(Base):
     __tablename__ = "users"
     
-    id = Column(String, primary_key=True)  # Will use Clerk ID
+    id = Column(String, primary_key=True)  # Our generated user ID
+    clerk_id = Column(String, unique=True, nullable=False, index=True)  # Clerk authentication ID
     email = Column(String, unique=True, nullable=False, index=True)
-    name = Column(String)
+    full_name = Column(String)
+    avatar_url = Column(String)
     role = Column(Enum(UserRole), default=UserRole.USER)
     
     # Theme preferences
     theme_preference = Column(String, default="system")  # light, dark, system
     
+    # Tracking
+    last_login = Column(DateTime(timezone=True))
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     

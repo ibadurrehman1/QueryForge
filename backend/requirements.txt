@@ -10,6 +10,7 @@ python-multipart
 # Database
 sqlalchemy[asyncio]
 asyncpg
+psycopg2-binary  # For Alembic migrations (sync driver)
 alembic
 
 # Validation & Settings
