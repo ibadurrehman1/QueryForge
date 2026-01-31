@@ -8,35 +8,62 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        // Dark mode colors (default)
-        background: "hsl(222.2 84% 4.9%)", // #0F172A
-        foreground: "hsl(210 40% 98%)", // #F8FAFC
-        card: "hsl(217.2 32.6% 17.5%)", // #1E293B
-        "card-foreground": "hsl(210 40% 98%)",
-        popover: "hsl(217.2 32.6% 17.5%)",
-        "popover-foreground": "hsl(210 40% 98%)",
-        primary: "hsl(217.2 91.2% 59.8%)", // #3B82F6
-        "primary-foreground": "hsl(222.2 47.4% 11.2%)",
-        secondary: "hsl(217.2 32.6% 17.5%)",
-        "secondary-foreground": "hsl(210 40% 98%)",
-        muted: "hsl(217.2 32.6% 17.5%)",
-        "muted-foreground": "hsl(215 20.2% 65.1%)",
-        accent: "hsl(217.2 32.6% 17.5%)",
-        "accent-foreground": "hsl(210 40% 98%)",
-        destructive: "hsl(0 62.8% 30.6%)",
-        "destructive-foreground": "hsl(210 40% 98%)",
-        border: "hsl(217.2 32.6% 17.5%)",
-        input: "hsl(217.2 32.6% 17.5%)",
-        ring: "hsl(217.2 91.2% 59.8%)",
-      },
-      borderRadius: {
-        lg: "0.5rem",
-        md: "calc(0.5rem - 2px)",
-        sm: "calc(0.5rem - 4px)",
-      },
-    },
+  	extend: {
+  		colors: {
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			'card-foreground': 'hsl(210 40% 98%)',
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			'popover-foreground': 'hsl(210 40% 98%)',
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			'primary-foreground': 'hsl(222.2 47.4% 11.2%)',
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			'secondary-foreground': 'hsl(210 40% 98%)',
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			'muted-foreground': 'hsl(215 20.2% 65.1%)',
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			'accent-foreground': 'hsl(210 40% 98%)',
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			'destructive-foreground': 'hsl(210 40% 98%)',
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
   plugins: [require("tailwindcss-animate")],
 };
