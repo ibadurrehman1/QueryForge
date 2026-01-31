@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.config import settings
 from app.database import engine, Base
+from app.utils.init_db import create_database_if_not_exists
 
 
 @asynccontextmanager
@@ -11,6 +12,9 @@ async def lifespan(app: FastAPI):
     Lifespan events for FastAPI application.
     Handles startup and shutdown events.
     """
+    # Check/create database before connecting
+    await create_database_if_not_exists()
+    
     # Startup: Create database tables
     async with engine.begin() as conn:
         # In production, use Alembic migrations instead

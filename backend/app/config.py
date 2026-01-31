@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:3001"]
     
     # Database (Neon PostgreSQL)
-    DATABASE_URL: str = "postgresql+asyncpg://user:password@localhost/queryforge"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:admin@localhost/queryforge"
     
     # Redis (Upstash)
     REDIS_URL: str = "redis://localhost:6379"
